@@ -1,0 +1,106 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+@import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0D1117;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    background-color: #161B22;
+}
+
+.navbar-menu {
+    font-size: 35px;
+    margin-left: 15px;
+    color: white;
+    grid-column: 0;
+}
+
+.navbar-menu button {
+    font-size: 35px;
+    background-color: rgba(0, 0, 0, 0);
+    margin-top: 3.5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-color: rgba(0, 0, 0, 0);
+    color: white;
+    transition: all 0.3s;
+}
+
+.navbar-menu button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.navbar-title {
+    font-size: 35px;
+    grid-column: 3;
+    justify-self: right;
+    position: absolute;
+    top: -30px;
+    padding-right: 15px;
+    color: rgb(233, 233, 233);
+}
+
+.sidebar {
+    direction: rtl;
+    position: fixed;
+    top: 55px;
+    left: -20%;
+    height: calc(100vh - 55px);
+    overflow: auto;
+    width: 20%;
+    background-color: #0D1117;
+}
+
+.sidebar-link {
+	text-decoration: none;
+    padding: 5px;
+	color: black;
+	width: calc(100% - 20%);
+	margin-left: 25px;
+	background-color: rgba(255, 255, 255, 0.67);
+	direction: ltr;
+	float: left;
+}
+.sidebar a:not(.sidebar-link) {
+
+	text-decoration: none;
+    color: #fdfdfd;
+	text-align: left;
+    float: left;
+	margin-left: 25px;
+	padding-left: 25px;
+    margin-top: 5px;
+    width: 75%;
+}
+
+.sidebar a:hover:not(.sidebar-link) {
+	color: #ababab;
+}
+
+.docs-body {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    z-index: -1;
+    position: absolute;
+    top: 55px;
+	width: calc(100% - 30px);
+    margin-left: 15px;
+}

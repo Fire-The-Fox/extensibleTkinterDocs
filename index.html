@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+
+    <script type="text/javascript" src="https://kit.fontawesome.com/7772804d9d.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link href="css/framework.css" rel="stylesheet"/>
+    <link href="css/github.css" rel="stylesheet"/>
+    <title>Home Page</title>
+</head>
+<body>
+<div class="navbar">
+
+    <div class="navbar-menu">
+        <button id="navbar-button" type="button">
+            <em class="fas fa-bars"></em>
+        </button>
+    </div>
+
+    <div class="navbar-title">
+        <p>ExtensibleTkinter</p>
+    </div>
+</div>
+
+<div class="sidebar" id="sidebar">
+    <div style="padding-bottom: 25px;"></div>
+    <a class="sidebar-link" href="#">Home</a>
+    <a href="#why">What actually is Xtk</a>
+    <a href="#list">List of all supported tags by Xtk</a>
+    <a href="#rules">Rules for every tag in Xtk</a>
+    <a href="#example">Example</a>
+</div>
+
+<div class="docs-body">
+    <div style="padding-bottom: 35px;"></div>
+    <article class="markdown-body">
+        <h1 style="text-align: center">Extensible Tkinter</h1>
+        <div style="padding-bottom: 15px;"></div>
+
+        <h3 id="why">What actually is <abbr title="Extensible Tkinter">Xtk</abbr>?</h3>
+        <p>Xtk is markup language created on top of <abbr title="eXtensible Markup Language">XML</abbr> with ability to
+            construct <abbr title="Graphical User Interface">GUI</abbr> thanks to <code>Builder</code> class from tkinter-expansion.</p>
+        <p>With this concept in mind, you can even create builder application that can generate Xtk for you, with ease rather than just generating the code.</p>
+        <p>Not only tkinter-expansion but also many other popular GUI frameworks support and preffer xml for GUI construction</p>
+
+        <div style="padding-bottom: 15px;"></div>
+
+        <h3>List of popular GUI frameworks that use xml: </h3>
+        <ul>
+            <li><p>Android app development ( java/kotlin )</p></li>
+            <li><p>JavaFX ( java/kotlin/groovy )</p></li>
+            <li><p>UWP and WPF ( .NET C#, windows only )</p></li>
+            <li><p>Avalonia ( .NET C# )</p></li>
+            <li><p>Gtk ( C )</p></li>
+            <li><p>QT ( C++ )</p></li>
+        </ul>
+
+        <div style="padding-bottom: 25px;"></div>
+        <h2 id="list" style="text-align: right">List of all supported tags by Xtk</h2>
+        <pre>
+Button <span class="pl-sg"># Widget which allows user input from mouse and can trigger function</span>
+Canvas <span class="pl-sg"># Widget on which you can draw shapes</span>
+CheckButton <span class="pl-sg"># Square based widget used in most of every forums</span>
+Entry <span class="pl-sg"># Widget into which you can write but only one line is supported</span>
+Frame <span class="pl-sg"># Widget capable of containing other widgets</span>
+Label <span class="pl-sg"># Widget for displaying text onto the screen</span>
+LabelFrame <span class="pl-sg"># Combination of Label and Frame widget, in short: You have Frame and title on top of it</span>
+Listbox <span class="pl-sg"># Sort text in vertical order</span>
+Menu <span class="pl-sg"># Menu bar on top of application</span>
+PannedWindow <span class="pl-sg"># Split widgets in one widget</span>
+Radiobutton <span class="pl-sg"># Circle based widget used in most of every forums</span>
+Scale <span class="pl-sg"># Widget which allows you to select value from range</span>
+Scrollbar <span class="pl-sg"># Classic scrollbar widget which can control specific view coordinate of widget</span>
+Text <span class="pl-sg"># Widget on which you can write text</span>
+Tk <span class="pl-sg"># Can be used only once, this widget <u>must</u> be root of Xtk file</span>
+TopLevel <span class="pl-sg"># It's similar to Tk, but you can have them more than one</span></pre>
+
+        <div style="padding-bottom: 25px;"></div>
+
+        <h2 id="rules">Xtk tag rules</h2>
+
+        <pre>
+Every single tag is name of widget, for example: Button
+Every single tag <u>must</u> have a <code>name</code> attribute otherwise Builder class is going to complain
+Other tag than <code>Tk</code> is not allowed, otherwise it might cause troubles
+Tag should contain parent attribute
+Only one specific placement method is allowed per widget: place, grid or pack
+        </pre>
+
+        <div style="padding-bottom: 25px;"></div>
+
+        <h2 id="example">Xtk example</h2>
+        <code>main.xtk</code>
+<pre>
+&lt;?<span class="pl-ent">xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;<span class="pl-ent">Tk</span> name=&quot;root&quot; width=&quot;1080&quot; height=&quot;1080&quot; title=&quot;Weather App&quot; resizable=&quot;False False&quot;&gt;
+    &lt;<span class="pl-ent">Label</span> name=&quot;Background&quot; parent=&quot;root&quot; bg=&quot;#9DC7F9&quot;&gt;
+        &lt;place relwidth=&quot;1&quot; relheight=&quot;1&quot;&gt; &lt;/place&gt;
+    &lt;/<span class="pl-ent">Label</span>&gt;
+
+    &lt;<span class="pl-ent">Frame</span> name=&quot;WBackground&quot; bg=&quot;white&quot;&gt;
+        &lt;place x=&quot;180&quot; y=&quot;180&quot; width=&quot;720&quot; height=&quot;720&quot;&gt; &lt;/place&gt;
+    &lt;/<span class="pl-ent">Frame</span>&gt;
+
+    &lt;<span class="pl-ent">Label</span> name=&quot;WText&quot; parent=&quot;WBackground&quot; text=&quot;Type weather location: &quot; bg=&quot;white&quot; font=&quot;Calibri&quot; fontsize=&quot;25&quot;&gt;
+        &lt;place x=&quot;25&quot; y=&quot;25&quot;&gt; &lt;/place&gt;
+    &lt;/<span class="pl-ent">Label</span>&gt;
+
+    &lt;<span class="pl-ent">Entry</span> name=&quot;WEntry&quot; parent=&quot;WBackground&quot; bg=&quot;white&quot; highlightbackground=&quot;#9DC7F9&quot; highlightthickness=&quot;10&quot; highlightcolor=&quot;#9DC7F9&quot; font=&quot;Calibri&quot; fontsize=&quot;30&quot;&gt;
+        &lt;place x=&quot;25&quot; y=&quot;90&quot; height=&quot;90&quot; width=&quot;495&quot;&gt; &lt;/place&gt;
+    &lt;/<span class="pl-ent">Entry</span>&gt;
+
+    &lt;<span class="pl-ent">Button</span> name=&quot;WSearch&quot; parent=&quot;WBackground&quot; text=&quot;Search&quot; bg=&quot;white&quot; highlightcolor=&quot;white&quot; highlightthickness=&quot;10&quot; relief=&quot;sunken&quot; bd=&quot;0&quot; highlightbackground=&quot;#9DC7F9&quot; font=&quot;Calibri&quot; fontsize=&quot;25&quot;&gt;
+        &lt;place x=&quot;520&quot; y=&quot;90&quot; height=&quot;90&quot; width=&quot;180&quot;&gt; &lt;/place&gt;
+    &lt;/<span class="pl-ent">Button</span>&gt;
+
+    &lt;<span class="pl-ent">Label</span> name=&quot;WData&quot; parent=&quot;WBackground&quot; bg=&quot;white&quot; highlightbackground=&quot;#9DC7F9&quot; highlightthickness=&quot;10&quot; justify=&quot;left&quot; anchor=&quot;nw&quot; font=&quot;Calibri&quot; fontsize=&quot;23&quot;&gt;
+        &lt;place x=&quot;25&quot; y=&quot;205&quot; height=&quot;490&quot; width=&quot;675&quot;&gt; &lt;/place&gt;
+    &lt;/<span class="pl-ent">Label</span>&gt;
+&lt;/<span class="pl-ent">Tk</span>&gt;
+</pre>
+
+        <code>main.py</code>
+        <pre>
+<span class="pl-k">import</span> extensibleTkinter as tke
+
+
+builder = tke.<span class="pl-v">Builder</span>(file="gui.xtk")
+builder.<span class="pl-e">init</span>()
+builder.<span class="pl-e">generate</span>()
+
+WEntry = builder.variables["WEntry"] <span class="pl-sg"># As you can see, I am accessing variables by their names which are generated by the Builder</span>
+WSearch = builder.variables["WSearch"]
+WData = builder.variables["WData"]
+
+builder.variables["root"].<span class="pl-e">mainloop</span>()
+        </pre>
+
+        <div style="padding-bottom: 15px;"></div>
+
+        <h3>Result: </h3>
+        <img src="images/generated.png" alt="Result generated by Xtk" width="512">
+    </article>
+</div>
+<script src="js/framework.js"></script>
+</body>
+</html>
