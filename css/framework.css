@@ -62,10 +62,10 @@ body {
     direction: rtl;
     position: fixed;
     top: 55px;
-    left: -20%;
+    left: -150px;
     height: calc(100vh - 55px);
     overflow: auto;
-    width: 20%;
+    width: 150px;
     background-color: #0D1117;
 }
 
