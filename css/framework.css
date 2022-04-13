@@ -65,7 +65,7 @@ body {
     left: -300px;
     height: calc(100vh - 55px);
     overflow: auto;
-    width: 150px;
+    width: 300px;
     background-color: #0D1117;
 }
 
