@@ -62,7 +62,7 @@ body {
     direction: rtl;
     position: fixed;
     top: 55px;
-    left: -150px;
+    left: -300px;
     height: calc(100vh - 55px);
     overflow: auto;
     width: 150px;
